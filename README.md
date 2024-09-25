@@ -1,16 +1,16 @@
 ## Timer
 
-Timer style using HTML5 and CSS3
+Timer using HTML5 and CSS3 and a Little bit of JS
 
 -------------------------------------------------
 
-**Hello guys !**
+**Hello , Programmers !**
 
 
 **Finally i could deploy this repo**
 
 
-**So , this is my first repo that actually works fine and before opening the timer webpage remember that it isnt actually a timer it is just like a timer style**
-**and yeah the start button wasnt a real button it was a div so thats all**
+**So , this is my first repo that actually works fine and before opening the timer webpage remember that You have only 60 secs (1 Min)**
+
 
 **Hope to like the style**
