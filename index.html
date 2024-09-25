@@ -33,11 +33,11 @@
         background-color: #5f58ff;
         border-radius: 15px;
         margin-top: 40px;
-        box-shadow: 1px 1px 10px black;
+        box-shadow: 0px 0px 10px #5f58ff;
         transition: 0.5s;
     }
     .square-box:hover{
-        box-shadow: 1px 1px 15px black;
+        box-shadow: 1px 1px 15px #5f58ff;
     }
     .timer-circle{
         display: flex;
@@ -50,6 +50,7 @@
         border-radius: 50%;
         border: white 5px solid;
         margin-top: 50px;
+        box-shadow: 0px 0px 10px white;
     }
     .time{
         font-family: "Segoe UI";
@@ -61,24 +62,37 @@
         display: flex;
         flex-flow: column wrap;
         justify-content: center;
-        width: 150px;
-        height: 70px;
+        width: 140px;
+        height: 65px;
         background-color: #3ed143;
+        box-shadow: 0px 0px 10px #3ed143;
         margin-top: 100px;
         border-radius: 15px;
         cursor: pointer;
+        border: 2px #3ed143 solid;
+        transition: 0.7s;
+    }
+    .start-button:hover{
+        width: 170px;
+        height: 80px;
+        box-shadow: 0px 0px 15px #3ed143;
     }
     .start-text{
         text-align: center;
         color: white;
         font-size: xx-large;
         font-weight: bold;
-        font-family: Consolas;
-        letter-spacing: 2px;
+        font-family: sans-serif , consolas;
+        letter-spacing: 1px;
+        transition: 0.7s;
+    }
+    .start-text:hover{
+        font-size: 45px;
+        font-weight: bold;
     }
     ::selection{
-        color: white;
-        background-color: red;
+        color: ;
+        background-color: white;
     }
 </style>
 
@@ -90,20 +104,54 @@
 
  <div class="timer-circle">
 
-<p class="time">
-    1:00
+<p class="time" id="timer">
+    60
 </p>
 
  </div>
 
-    <div class="start-button">
+    <button onclick="startTimer()" class="start-button">
 
-        <p title="Note : This button won't do any action" class="start-text">
+        <p class="start-text">
             Start
         </p>
 
-    </div>
+    </button>
 
 </div>
+
+<audio id="alarmSound" src="alarm.wav"></audio>
+<audio id="tickSound" src="ticking.mp3"></audio>
+
+<script>
+    function startTimer() {
+    let timeLeft = 60;
+    const timerElement = document.getElementById('timer');
+    const alarmSound = document.getElementById('alarmSound');
+    const tickSound = document.getElementById('tickSound');
+
+    const countdown = setInterval(() => {
+        timeLeft--;
+        timerElement.textContent = timeLeft;
+        
+        // Play the ticking sound on each tick
+        tickSound.currentTime = 0; // Reset the ticking sound
+        tickSound.play();
+
+        if (timeLeft <= 0) {
+            clearInterval(countdown);
+            
+            // Stop the ticking sound
+            tickSound.pause();
+            tickSound.currentTime = 0; // Reset the ticking sound
+
+            // Play the alarm sound
+            alarmSound.play();
+        }
+    }, 1000);
+}
+
+</script>
+
 </body>
 </html>
