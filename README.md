@@ -1,8 +1,8 @@
 ## Timer
 
-a Timer using HTML5 and CSS3 and a Little bit of JS
+**a Timer using HTML5 and CSS3 and a Little bit of JS**
 
----------------------------------------------------
+**---------------------------------------------------**
 
 **Hello , Programmers !**
 
