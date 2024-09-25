@@ -121,31 +121,19 @@
 </div>
 
 <audio id="alarmSound" src="alarm.wav"></audio>
-<audio id="tickSound" src="ticking.mp3"></audio>
 
 <script>
     function startTimer() {
     let timeLeft = 60;
     const timerElement = document.getElementById('timer');
     const alarmSound = document.getElementById('alarmSound');
-    const tickSound = document.getElementById('tickSound');
 
     const countdown = setInterval(() => {
         timeLeft--;
         timerElement.textContent = timeLeft;
-        
-        // Play the ticking sound on each tick
-        tickSound.currentTime = 0; // Reset the ticking sound
-        tickSound.play();
 
         if (timeLeft <= 0) {
             clearInterval(countdown);
-            
-            // Stop the ticking sound
-            tickSound.pause();
-            tickSound.currentTime = 0; // Reset the ticking sound
-
-            // Play the alarm sound
             alarmSound.play();
         }
     }, 1000);
