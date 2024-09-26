@@ -1,145 +1,41 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta http-equiv="Content-Type" content="text/html;charset=windows-1251">
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=7">
-    <title>Timer | Mohamed Eldeeb</title>
-    <link rel="icon" type="image/x-icon" href="curly.ico">
-</head>
-<body>
-<style>
-    body{
-        display: flex;
-        flex-flow: column wrap;
-        justify-content: center;
-        align-items: center;
-        background-color: #253c84;
-    }
-    .title{
-        font-family: "Agency FB";
-        font-size: 45px;
-    }
-    .square-box{
-        display: flex;
-        flex-flow: column wrap;
-        align-items: center;
-        width: 300px;
-        height: 500px;
-        background-color: #5f58ff;
-        border-radius: 15px;
-        margin-top: 40px;
-        box-shadow: 0px 0px 10px #5f58ff;
-        transition: 0.5s;
-    }
-    .square-box:hover{
-        box-shadow: 1px 1px 15px #5f58ff;
-    }
-    .timer-circle{
-        display: flex;
-        flex-flow: column wrap;
-        justify-content: center;
-        align-items: center;
-        width: 200px;
-        height: 200px;
-        background-color: black;
-        border-radius: 50%;
-        border: white 5px solid;
-        margin-top: 50px;
-        box-shadow: 0px 0px 10px white;
-    }
-    .time{
-        font-family: "Segoe UI";
-        font-weight: bold;
-        color: white;
-        font-size: 70px;
-    }
-    .start-button{
-        display: flex;
-        flex-flow: column wrap;
-        justify-content: center;
-        align-items: center;
-        width: 140px;
-        height: 65px;
-        background-color: #3ed143;
-        box-shadow: 0px 0px 10px #3ed143;
-        margin-top: 100px;
-        border-radius: 15px;
-        cursor: pointer;
-        border: 2px #3ed143 solid;
-        transition: 0.7s;
-    }
-    .start-button:hover{
-        width: 170px;
-        height: 80px;
-        box-shadow: 0px 0px 15px #3ed143;
-    }
-    .start-text{
-        color: white;
-        font-size: 20px;
-        font-weight: bold;
-        font-family: sans-serif , consolas;
-        letter-spacing: 1px;
-        transition: 0.7s;
-    }
-    .start-text:hover{
-        font-size: 28px;
-        font-weight: bold;
-    }
-    ::selection{
-        color: ;
-        background-color: white;
-    }
-</style>
-
-<p class="title">
-    Timer
-</p>
-
-<div class="square-box">
-
- <div class="timer-circle">
-
-<p class="time" id="timer">
-    60
-</p>
-
- </div>
-
-    <button onclick="startTimer()" class="start-button">
-
-        <p class="start-text">
-            Start Timer
-        </p>
-
-    </button>
-
-</div>
-
-<audio id="alarmSound" src="alarm.wav"></audio>
-
-<script>
-    function startTimer() {
-    let timeLeft = 60;
-    const timerElement = document.getElementById('timer');
-    const alarmSound = document.getElementById('alarmSound');
-
-    const countdown = setInterval(() => {
-        timeLeft--;
-        timerElement.textContent = timeLeft;
-
-        if (timeLeft <= 0) {
-            clearInterval(countdown);
-            alarmSound.play();
-        }
-    }, 1000);
-}
-
-</script>
-
-</body>
+    <head>
+        <title>Timer | Mohamed Eldeeb</title>
+        <style>
+            body { background-color: #253c84; display: flex; justify-content: center; align-items: center; }
+            .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-size: 45px; }
+            .square { display: flex; flex-flow: column wrap; justify-content: space-evenly; align-items: center; width: 300px; height: 500px; background-color: #5f58ff; border-radius: 15px; margin-top: 40px; box-shadow: 0px 0px 10px #5f58ff; transition: 0.5s; }
+            .square:hover { box-shadow: 1px 1px 15px #5f58ff; }
+            .circle { display: flex; flex-flow: column wrap; justify-content: center; align-items: center; width: 200px; height: 200px; background-color: black; border-radius: 50%; border: white 5px solid; box-shadow: 0px 0px 10px white; }
+            .timer { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: bold; color: #FFF; font-size: 70px; }
+            .button { display: flex; flex-flow: column wrap; justify-content: center; align-items: center; width: 140px; height: 65px; background-color: #3ed143; box-shadow: 0px 0px 10px #3ed143; border-radius: 15px; cursor: pointer; border: 2px #3ed143 solid; transition: 0.7s; color: white; font-size: 20px; font-weight: bold; font-family: sans-serif , consolas; letter-spacing: 1px; transition: 0.7s; }
+            .button:hover { width: 170px; height: 80px; box-shadow: 0px 0px 15px #3ed143; font-size: 28px; font-weight: bold; }
+        </style>
+    </head>
+    <body>
+        <script>
+            let clickOnce = false;
+            function startTimer(button) {
+                if (clickOnce) return;
+                clickOnce = true;
+                let timeLeft = prompt("Timer: ", 60);
+                button.textContent = "Started";
+                const timerElement = document.getElementById("timer");
+                const alarmElement = document.getElementById("alarm");
+                timerElement.textContent = timeLeft;
+                const interval = setInterval(() => {
+                    timeLeft--;
+                    timerElement.textContent = timeLeft;
+                    if (timeLeft <= 0) { clearInterval(interval); alarmElement.play(); clickOnce = false; button.textContent = "Start"; }
+                }, 1000);
+            }
+        </script>
+        <audio id="alarm" src="alarm.wav"></audio>
+        <div class="square">
+            <span class="title">Timer</span>
+            <div class="circle"><span id="timer" class="timer">60</span></div>
+            <button class="button" onclick="startTimer(this)">Start</button>
+        </div>
+    </body>
 </html>
