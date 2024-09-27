@@ -1,19 +1,16 @@
 ## Timer
 
-**a Timer using HTML5 , CSS3 and JS**
+**a Timer using HTML5 and CSS3 and a Little bit of JS**
 
-**----------------------------------------------------------------------**
+**-------------------------------------------------------**
 
 **Hello , Programmers !**
 
 
 **Finally i could deploy this repo**
 
-**The Website still has an issue
-it is after clicking cancel in the time-selecting interface the time will be *-1* and the timer will be endeed**
+
+**So , this is my first repo that actually works fine and before opening the timer webpage remember that You have only 60 secs (1 Min)**
 
 
-**Hope to like the timer**
-
-
-**Special Thanks for dxvrxv**
+**Hope to like the style**
