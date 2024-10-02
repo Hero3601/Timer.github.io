@@ -11,7 +11,7 @@
 
 
 **So , this is my first repo that actually works fine and before opening the timer webpage remember that if you want to set it for a minute you should type 60
-and if you want a hour you should type 3600 until i we try to change that**
+and if you want a hour you should type 3600 until we try to change**
 
 
 
