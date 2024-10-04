@@ -133,13 +133,17 @@
     <script>
     let clickOnce = false;
     let interval;
-
+    let isSec = true;
+    let isMin = false;
+    let isHour = false;
     function startTimer(button) {
         const timerElement = document.getElementById("timer");
         const alarmElement = document.getElementById("alarm");
         if (!clickOnce) {
+            let timeLeft = prompt(isHour ? "Hours: " : isMin ? "Minutes: " : "Seconds: ", 0);
+            if (!timeLeft) return;
             clickOnce = true;
-            let timeLeft = prompt("Time: ", 60);
+            timeLeft = isHour ? (timeLeft * 3600) : isMin ? (timeLeft * 60) : timeLeft;
             button.textContent = "Reset";
             timerElement.textContent = timeLeft;
             interval = setInterval(() => {
@@ -162,9 +166,9 @@
     </script>
     <audio id="alarm" src="alarm.wav"></audio>
     <div class="parent-of-button">
-        <button>Sec</button>
-        <button>Min</button>
-        <button>Hour</button>
+        <button onclick="isSec = 1; isMin = 0; isHour = 0;">Sec</button>
+        <button onclick="isSec = 0; isMin = 1; isHour = 0;">Min</button>
+        <button onclick="isSec = 0; isMin = 0; isHour = 1;">Hour</button>
     </div>
     <div class="square">
         <span class="title">Timer</span>
