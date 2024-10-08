@@ -10,7 +10,7 @@
 **Finally i could deploy this repo**
 
 
-**This is a very simple timer , includes : sec , min and hour buttons**
+**This is a very simple timer**
 
 
 **Hope to like the Timer**
