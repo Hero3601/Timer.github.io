@@ -6,7 +6,7 @@
     <title>Timer | Mohamed Eldeeb</title>
     <style>
         body {
-            background-color: #253c84;
+            background-color: #3b3b3b;
             height: 100vh;
             padding: 0;
             margin: 0;
@@ -15,12 +15,12 @@
             justify-content: center;
             align-items: center;
         }
-
+        
         .title {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             font-size: 45px;
         }
-
+        
         .square {
             display: flex;
             flex-flow: column wrap;
@@ -29,17 +29,17 @@
             margin-bottom: 70px;
             width: 300px;
             height: 500px;
-            background-color: #5f58ff;
+            background-color: antiquewhite;
             border-radius: 15px;
             margin-top: 40px;
-            box-shadow: 0px 0px 10px #5f58ff;
-            transition: 0.2s;
+            box-shadow: 0px 0px 10px antiquewhite;
+            transition: 0.3s;
         }
-
+        
         .square:hover {
-            box-shadow: 1px 1px 15px #5f58ff;
+            box-shadow: 1px 1px 20px antiquewhite;
         }
-
+        
         .circle {
             display: flex;
             flex-flow: row wrap;
@@ -47,38 +47,38 @@
             align-items: center;
             width: 200px;
             height: 200px;
-            background-color: black;
+            background-color: antiquewhite;
             border-radius: 50%;
-            border: white 5px solid;
-            box-shadow: 0px 0px 10px white;
+            border: #3b3b3b 5px solid;
+            box-shadow: 0px 0px 10px #3b3b3b;
         }
-
+        
         .circle span {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             font-weight: bold;
-            color: #FFF;
+            color: #3b3b3b;
             font-size: 36px;
             cursor: pointer;
         }
-
+        
         .sec-time::before {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             font-weight: bold;
-            color: #FFF;
+            color: #3b3b3b;
             font-size: 36px;
             content: ":";
             margin-right: 7px;
         }
-
+        
         .hour-time::after {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             font-weight: bold;
-            color: #FFF;
+            color: #3b3b3b;
             font-size: 36px;
             content: ":";
             margin-left: 7px;
         }
-
+        
         .button {
             display: flex;
             flex-flow: column wrap;
@@ -99,7 +99,7 @@
             letter-spacing: 1px;
             transition: 0.5s;
         }
-
+        
         .button:hover {
             width: 155px;
             height: 70px;
@@ -107,8 +107,8 @@
             font-size: 32px;
             font-weight: bold;
         }
-
-        ::selection {
+        
+         ::selection {
             color: black;
             background-color: white;
         }
@@ -137,7 +137,7 @@
         const secElement = document.getElementById("sec-time");
 
         function addClickListener(id, callback) {
-            document.getElementById(id).addEventListener("click", function () {
+            document.getElementById(id).addEventListener("click", function() {
                 let input = prompt("Enter value:");
                 if (!isNaN(input) && input !== null) {
                     callback(input);
