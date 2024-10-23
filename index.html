@@ -65,9 +65,9 @@
     .circle .hour-time:hover,
     .circle .min-time:hover,
     .circle .sec-time:hover {
-        border: #3b3b3b 4px solid;
+        border: #3b3b3b 5px solid;
         border-radius: 33%;
-        padding: 3px;
+        padding: 4px;
     }
 
     .button {
@@ -140,13 +140,35 @@
 
     function updateTimer(input, type) {
         input = parseInt(input);
-        if (type === "sec" && input >= 0 && input < 60) {
+        if (type === "sec") {
             secElement.textContent = input < 10 ? "0" + input : input;
-        } else if (type === "min" && input >= 0 && input < 60) {
+        } else if (type === "min") {
             minElement.textContent = input < 10 ? "0" + input : input;
-        } else if (type === "hour" && input >= 0 && input < 100) {
+        } else if (type === "hour") {
             hourElement.textContent = input < 10 ? "0" + input : input;
         }
+
+        adjustTimer(); // Call adjustTimer immediately after any change
+    }
+
+    function adjustTimer() {
+        let seconds = parseInt(secElement.textContent);
+        let minutes = parseInt(minElement.textContent);
+        let hours = parseInt(hourElement.textContent);
+
+        if (seconds >= 60) {
+            minutes += Math.floor(seconds / 60);
+            seconds = seconds % 60;
+        }
+
+        if (minutes >= 60) {
+            hours += Math.floor(minutes / 60);
+            minutes = minutes % 60;
+        }
+
+        secElement.textContent = seconds < 10 ? "0" + seconds : seconds;
+        minElement.textContent = minutes < 10 ? "0" + minutes : minutes;
+        hourElement.textContent = hours < 10 ? "0" + hours : hours;
     }
 
     function startTimer(button) {
@@ -174,8 +196,9 @@
                     clickOnce = false;
                 }
             }, 1000);
+        } else if (totalSeconds === 0) {
+            alert("Please set a duration before starting the timer.");
         } else {
-            // Reset functionality
             clearInterval(interval);
             hourElement.textContent = "00";
             minElement.textContent = "00";
