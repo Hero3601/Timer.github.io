@@ -14,16 +14,22 @@
             flex-flow: column wrap;
             justify-content: center;
             align-items: center;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
         
         .title {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             font-size: 45px;
             transition: 0.3s;
+            text-shadow: 0 0 6px black;
         }
 
         .title:hover {
             font-size: 52px;
+            cursor: default;
+            user-select: none;
+            -ms-user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
         }
         
         .square {
@@ -75,6 +81,10 @@
             font-size: 36px;
             cursor: pointer;
             transition: 0.4s;
+            user-select: none;
+            -ms-user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
         }
         
         .circle .hour-time:hover,
@@ -99,10 +109,11 @@
             border: 2px #1d1d1d solid;
             transition: 0.7s;
             color: white;
+            text-shadow: 0 0 3px antiquewhite;
             font-size: 30px;
             font-weight: bold;
             font-family: sans-serif, consolas;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             transition: 0.5s;
         }
         
